@@ -1,0 +1,30 @@
+.boxFrame {
+
+    padding:2rem;  
+}
+.box {
+    border-radius:20px;
+    background-color: white;
+    box-shadow: 0 5px 10px 10px rgb(0,0,0,0.2);
+    min-height:20rem;
+    padding:1rem;
+    transition: all 0.1s ease;
+    &:hover {
+        box-shadow: 0 10px 14px 10px rgb(0,0,0,0.2);
+        transform:translateY(-1px);
+    }
+    display:flex;
+    flex-direction:column;
+    justify-content: space-between;
+}
+
+
+.header {
+    width:100%;
+}
+.content {
+    width:100%;
+}
+.submit {
+    width:100%;
+}
