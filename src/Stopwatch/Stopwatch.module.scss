@@ -1,0 +1,23 @@
+.clock {
+    display:flex;
+    justify-content: center;
+    font-size:4rem;
+    font-family:"Roboto Mono";
+}
+
+
+.swapout {
+    display:none;
+    margin-top:auto;
+    margin-bottom:auto;
+
+}
+
+.show {
+    display:flex !important;
+}
+
+.align {
+    display:flex;
+    align-items: center;
+}
