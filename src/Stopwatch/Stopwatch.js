@@ -53,7 +53,7 @@ export default function Stopwatch() {
         <button onClick={delayStart} className="button is-large is-primary">start</button>
     </div>
     let wait = <div className={styles.swapout} id="stopwatch-wait">
-        <h4 className="title is-4">Wait....</h4>
+        <h3 className="title is-2">Wait....</h3>
     </div>
     let stop = <div className={styles.swapout} id="stopwatch-stop">
         <button onClick={stopper} className="button is-large is-danger">stop</button>
