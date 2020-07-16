@@ -1,0 +1,77 @@
+.inNum {
+    width:5rem;
+    height:3rem;
+    font-size:3rem;
+    padding:0.5rem;
+    margin-left:0.2rem;
+}
+
+.code {
+    font-family:"Roboto Mono";
+    font-size:3rem;
+    padding-top:1rem;
+}
+
+.clock {
+    font-family:"Roboto Mono";
+    font-size:1.5rem;
+}
+.press, .clock, .code, .maffsBox {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.maffsBox {
+    min-height:4rem;
+    animation: 1 ease 200ms;
+    flex-wrap:wrap;
+    flex-direction:column;
+    justify-content: space-around;
+    flex-basis:100%;
+    flex-grow:1;
+}
+
+.progress, .clock, .maffsBox {
+    display:none;
+}
+
+.press {
+    display:none;
+    flex-basis:100%;
+    flex-grow:1;
+}
+.reset {
+    display:none;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-around;
+    flex-basis:100%;
+    flex-grow:1;
+    & > div {
+        font-family:"Roboto Mono";
+        font-size:2rem;
+    }
+}
+
+@keyframes wrong {
+    0% {
+        transform : none;
+    }
+    25% {
+        transform : translateX(4px);
+    }
+    50% {
+        transform : translateX(-4px);
+    }
+    75% {
+        transform : translateX(4px);
+    }
+    100% {
+        transform:none;
+    }
+}
+
+.show {
+    display:flex;
+}

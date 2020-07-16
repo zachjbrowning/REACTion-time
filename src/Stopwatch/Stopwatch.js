@@ -13,6 +13,7 @@ export default function Stopwatch() {
     
     function delayStart() {
         document.getElementById("stopwatch-start").classList.toggle(styles.show);
+        document.getElementById("stopwatch-clock").classList.toggle(styles.show);
         document.getElementById("stopwatch-wait").classList.toggle(styles.show);
         let delay = 500 + Math.floor((Math.random()) * 10000) / 5
         console.log("waiting", delay)
@@ -42,6 +43,7 @@ export default function Stopwatch() {
         document.getElementById("stopwatch-submit").classList.toggle(styles.show);
         document.getElementById("stopwatch-reset").classList.toggle(styles.show);
         document.getElementById("stopwatch-start").classList.toggle(styles.show);
+        document.getElementById("stopwatch-clock").classList.toggle(styles.show);
         setTime(0);
         setStarted(0);
     }
@@ -63,7 +65,7 @@ export default function Stopwatch() {
     </div>
 
 return <>
-        <div className={styles.clock}>
+        <div id="stopwatch-clock" className={styles.clock}>
             {seconds}:{centis} 
         </div>
         <div className={`container ${styles.align}`}>
