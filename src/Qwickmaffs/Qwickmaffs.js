@@ -31,7 +31,14 @@ export default function Qwickmaffs() {
         let op = newNum(3);
         let ans = 0;
         if (op === 0) ans = first + second;
-        else if (op === 1) ans = first - second;
+        else if (op === 1) {
+            if (first < second) {
+                let temp = first;
+                first = second;
+                second = temp;
+            }
+            ans = first - second
+        }
         else if (op === 2) ans = first * second;
         setEquation({
             first : first,
