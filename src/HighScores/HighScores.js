@@ -1,42 +1,56 @@
 import styles from "./HighScores.module.scss";
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
-
+import { useSelector, useDispatch } from 'react-redux';
+import { load_highs } from "../../lib/redux/actions/highAction";
 
 export default function HighScores() {
+    const dispatch = useDispatch();
     const games = ["stopwatch", "qwickmaffs", "wackamole"]
     const [active, setActive] = useState("stopwatch")
     const highs = useSelector(state => state.high);
+    const [loading, setLoading] = useState(false);
 
+    function refresh() {
+        setLoading(true);
+        dispatch(load_highs(active)).then((res) => {setLoading(false)});
+    }
 
-    return <div className={`${styles.box}`}>
-        <div className="tabs is-centered">
-            <ul>
-                {games.map((val, idx) => (
-                    <li key={idx} className={val === active ? "is-active" : ""}>
-                        <a onClick={() => setActive(val)}>{val}</a>
-                    </li>
-                ))}
-            </ul>
+    return <>
+        <div className={`${styles.box}`}>
+            <div className="tabs is-centered">
+                <ul>
+                    {games.map((val, idx) => (
+                        <li key={idx} className={val === active ? "is-active" : ""}>
+                            <a onClick={() => setActive(val)}>{val}</a>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+            <div className={styles.scores}>
+                {
+                    highs[active].map((score, idx) => (
+                        <div key={idx} className={`${idx % 2 === 1 ? styles.odd : ""} ${styles.score}`}>
+                            <div className={styles.rank}>
+                                {idx + 1}
+                            </div>
+                            <div className={styles.name}>
+                                {score.name}
+                            </div>
+                            <div className={styles.value}>
+                                blah
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
         </div>
-        <div className={styles.scores}>
+        <div className={styles.refresh}>
             {
-                highs[active].map((score, idx) => (
-                    <div key={idx} className={`${idx % 2 === 1 ? styles.odd : ""} ${styles.score}`}>
-                        <div className={styles.rank}>
-                            {idx + 1}
-                        </div>
-                        <div className={styles.name}>
-                            {score.name}
-                        </div>
-                        <div className={styles.value}>
-                            blah
-                        </div>
-                    </div>
-                ))
+                loading ? 
+                <progress className="progress is-small is-primary"></progress>
+                : <a onClick={refresh}>Refresh high scores</a>
             }
         </div>
-    </div>
-
+    </>
 
 }

@@ -19,6 +19,16 @@ app.post('/new-score/', (req,res) => {
     console.log(req.body);
 });
 
+
+app.get('/get-highs/:game', (req, res) => {
+    console.log(req.params.game);
+    res.send({
+        scores : [
+
+        ]
+    })
+})
+
 //Routing, default sends all urls 
 app.get('/*', (req,res) => {
     res.sendFile(APP_ENTRY);

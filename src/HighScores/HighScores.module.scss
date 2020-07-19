@@ -1,5 +1,7 @@
 .box {
     width:100%;
+    flex-basis:100%;
+    flex-grow:1;
 }
 
 
@@ -31,4 +33,9 @@
     padding-right:0.5rem;
     padding-left:1rem;
     width:6rem;
+}
+
+.refresh {
+    display:flex;
+    justify-content: flex-end;
 }
