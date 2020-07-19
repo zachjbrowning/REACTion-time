@@ -11,19 +11,19 @@ const APP_ENTRY = path.join(DIST_DIR, 'index.html');
 
 
 //Setting up static file access
-app.use(express.static(DIST_DIR));
+app.use('/reaction/',express.static(DIST_DIR));
 
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json())
 
-app.post('/new-score/:game', (req,res) => {
+app.post('/reaction/new-score/:game', (req,res) => {
     res.send({success : true});
     scores.add(req.params.game, req.body)
 });
 
 
-app.get('/get-highs/:game', (req, res) => {
+app.get('/reaction/get-highs/:game', (req, res) => {
     var highs = scores.getHighs(req.params.game)
     res.send({
         scores : highs
@@ -31,7 +31,7 @@ app.get('/get-highs/:game', (req, res) => {
 })
 
 //Routing, default sends all urls 
-app.get('/*', (req,res) => {
+app.get('/reaction/', (req,res) => {
     res.sendFile(APP_ENTRY);
 });
 
