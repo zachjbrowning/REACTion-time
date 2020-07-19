@@ -1,6 +1,8 @@
 .main {
     display:flex;
-    justify-content: center;
+    flex-wrap:wrap;
     align-items: center;
     min-height:20vh;
+    padding:3rem;
+    padding-bottom:0rem;
 }
