@@ -12,7 +12,9 @@
   "author": "zachjbrowning <zachjbrowning@outlook.com>",
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.19.2",
     "bulma": "^0.9.0",
+    "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",

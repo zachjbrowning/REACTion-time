@@ -2,11 +2,13 @@ import styles from "./Stopwatch.module.scss";
 import React, { useState } from 'react';
 
 import Submitter from "../Submitter/Submitter";
-
+import { useDispatch } from 'react-redux';
+import { new_score } from "../../lib/redux/actions/scoreAction";
 
 
 
 export default function Stopwatch() {
+    const dispatch = useDispatch();
     const [started, setStarted] = useState(0);
     const [time, setTime] = useState(0);
     const [isGoing, setIsGoing] = useState(-1);
@@ -37,6 +39,7 @@ export default function Stopwatch() {
         document.getElementById("stopwatch-submit").classList.toggle(styles.show);
         clearInterval(isGoing);
         setIsGoing(-1);
+        dispatch(new_score(345, "stopwatch"));
     }
     
     function resetter() {
@@ -74,7 +77,7 @@ return <>
             {stop}
             {reset}
         </div>
-        <Submitter id="stopwatch-submit"/>
+        <Submitter game="stopwatch" id="stopwatch-submit"/>
         
     </>
 }

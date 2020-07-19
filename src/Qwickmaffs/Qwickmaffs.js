@@ -1,11 +1,15 @@
 import styles from "./Qwickmaffs.module.scss";
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from 'react-redux';
+import { new_score } from "../../lib/redux/actions/scoreAction";
 
 import Submitter from "../Submitter/Submitter";
 
+
 export default function Qwickmaffs() {
-    const operators = ["+","-",<>&times;</>]
+    const dispatch = useDispatch();
+    const operators = ["+","-",<>&times;</>];
     const [progress, setProgress] = useState(0);
     const [started, setStarted] = useState(0);
     const [time, setTime] = useState(0);
@@ -60,6 +64,7 @@ export default function Qwickmaffs() {
         document.getElementById("qwick-time").classList.remove(styles.show);
         document.getElementById("qwick-submit").classList.add(styles.show);
         document.getElementById("qwick-reset").classList.add(styles.show);
+        dispatch(new_score(12, "qwickmaffs"))
     }
 
     function reset() {
@@ -115,6 +120,6 @@ export default function Qwickmaffs() {
         </div>
         <progress id="qwick-progress" className={`progress is-primary ${styles.progress}`} id="qwick-progress" value={progress} max="5"></progress>
         
-        <Submitter id="qwick-submit"/>
+        <Submitter game="qwickmaffs" id="qwick-submit"/>
     </>
 }

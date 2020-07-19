@@ -4,7 +4,11 @@ import React, { useState } from "react";
 import MoleHole from "./MoleHole";
 import Submitter from "../Submitter/Submitter";
 
+import { useDispatch } from 'react-redux';
+import { new_score } from "../../lib/redux/actions/scoreAction";
+
 export default function Wackamole() {
+    const dispatch = useDispatch();
     const initialGaps = [1500, 200, 400, 500, 50, 1200, 800, 300];
     const [gaps, setGaps] = useState(initialGaps);
     const [started, setStarted] = useState(0);
@@ -31,7 +35,7 @@ export default function Wackamole() {
         document.getElementById("wack-start").classList.remove(styles.show);
         document.getElementById("wack-box").classList.add(styles.show);
         document.getElementById("wack-time").classList.add(styles.show);
-        setTimeout(() => appear(0,0), nextGap());
+        setTimeout(() => appear(0,0), 0);
     }
     
     function stop() {
@@ -43,6 +47,7 @@ export default function Wackamole() {
         document.getElementById("wack-reset").classList.add(styles.show);
         setMoles(noMoles);
         setGaps(initialGaps);
+        dispatch(new_score(1, "wackamole"));
     }
 
     function reset() {
@@ -116,7 +121,7 @@ export default function Wackamole() {
         <div id="wack-time" className={styles.clock}>
             {seconds}:{centis}
         </div>
-        <Submitter id="wack-submit"/>
+        <Submitter game="wackamole" id="wack-submit"/>
 
     </>
 }
