@@ -1,0 +1,70 @@
+.curse {
+    display:none;
+    flex-basis:100%;
+    flex-grow:1;
+    justify-content: center;
+    align-items: center;
+}
+
+.row {
+    & > td {
+        cursor:crosshair;
+        width:4rem;
+        height:4rem;
+        border:1px black solid;
+        padding:0px;
+        overflow: hidden;
+    }
+}
+.st0{fill:#653401;}
+.st1{fill:#693603;}
+.st2{fill:#AA7239;}
+.st3{fill:#FAF9F8;}
+.st4{fill:#0C0C0C;}
+.st5{fill:#0B0B0B;}
+.st6{fill:#494441;}
+.st7{fill:#723130;}
+.st8{fill:#4D4640;}
+
+
+.moleBox {
+    width:100%;
+    height:100%;
+    transform:translateY(4rem);
+    transition:transform ease 150ms;
+    &.show {
+        transform:translateY(0rem);
+    }
+}
+
+.press {
+    display:none;
+    flex-basis:100%;
+    flex-grow:1;
+    justify-content: center;
+    align-items: center;
+}
+.reset {
+    display:none;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-around;
+    flex-basis:100%;
+    flex-grow:1;
+    & > div {
+        font-family:"Roboto Mono";
+        font-size:2rem;
+    }
+}
+
+.clock {
+    font-family:"Roboto Mono";
+    font-size:1.5rem;
+    display:none;
+    justify-content: center;
+    align-items: center;
+}
+
+.show {
+    display:flex;
+}

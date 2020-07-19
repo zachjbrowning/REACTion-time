@@ -8,6 +8,7 @@ import Box from "../Box/Box";
 import Landing from "../Landing/Landing";
 import Stopwatch from "../Stopwatch/Stopwatch";
 import Qwickmaffs from "../Qwickmaffs/Qwickmaffs";
+import Wackamole from "../Wackamole/Wackamole";
 
 export default function Wireframe() {
     
@@ -17,7 +18,7 @@ export default function Wireframe() {
            <Landing/>
            <Box title="Stop(the)watch" content={<Stopwatch/>}/>
            <Box title="Qwik Maffs" content={<Qwickmaffs/>}/>
-           <Box content="HEYY"/>
+           <Box title="Wackamole" content={<Wackamole/>}/>
        </div>
     </div>
 }
