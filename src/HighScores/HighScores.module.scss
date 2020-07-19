@@ -1,0 +1,34 @@
+.box {
+    width:100%;
+}
+
+
+.scores {
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+}
+
+.score {
+    width:100%;
+    display:flex;
+    flex-basis:100%;
+    flex-grow:1;
+}
+
+.odd {
+    background-color: #00000008;
+}
+
+.rank {
+    padding-left:0.5rem;
+    width:4rem;
+    padding-right:0.5rem;
+}
+
+.value {
+    margin-left:auto;
+    padding-right:0.5rem;
+    padding-left:1rem;
+    width:6rem;
+}

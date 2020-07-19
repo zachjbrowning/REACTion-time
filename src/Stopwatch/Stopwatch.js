@@ -50,6 +50,12 @@ export default function Stopwatch() {
         setTime(0);
         setStarted(0);
     }
+
+    function removeReset() {
+        document.getElementById("wack-reset").classList.remove(styles.show);
+    }
+    
+
     const updated = time - started;
     let centis = ("0" + (Math.floor(updated / 10) % 100)).slice(-2);
     let seconds = ("0" + (Math.floor(updated / 1000) % 60)).slice(-2);
@@ -77,7 +83,7 @@ return <>
             {stop}
             {reset}
         </div>
-        <Submitter game="stopwatch" id="stopwatch-submit"/>
+        <Submitter hideReset={removeReset} reset={resetter} game="stopwatch" id="stopwatch-submit"/>
         
     </>
 }

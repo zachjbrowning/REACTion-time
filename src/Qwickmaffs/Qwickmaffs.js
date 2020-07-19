@@ -73,6 +73,10 @@ export default function Qwickmaffs() {
         document.getElementById("qwick-start").classList.add(styles.show);
         
     }
+
+    function removeReset() {
+        document.getElementById("wack-reset").classList.remove(styles.show);
+    }
     
     function handleSubmit(event) {
         event.preventDefault();
@@ -120,6 +124,6 @@ export default function Qwickmaffs() {
         </div>
         <progress id="qwick-progress" className={`progress is-primary ${styles.progress}`} id="qwick-progress" value={progress} max="5"></progress>
         
-        <Submitter game="qwickmaffs" id="qwick-submit"/>
+        <Submitter hideReset={removeReset} reset={reset} game="qwickmaffs" id="qwick-submit"/>
     </>
 }

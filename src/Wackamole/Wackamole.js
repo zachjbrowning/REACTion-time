@@ -55,6 +55,10 @@ export default function Wackamole() {
         document.getElementById("wack-reset").classList.remove(styles.show);
         document.getElementById("wack-start").classList.add(styles.show);
     }
+
+    function removeReset() {
+        document.getElementById("wack-reset").classList.remove(styles.show);
+    }
     
     function nextGap() {
         let newGaps = [...gaps];
@@ -121,7 +125,7 @@ export default function Wackamole() {
         <div id="wack-time" className={styles.clock}>
             {seconds}:{centis}
         </div>
-        <Submitter game="wackamole" id="wack-submit"/>
+        <Submitter hideReset={removeReset} reset={reset} game="wackamole" id="wack-submit"/>
 
     </>
 }
