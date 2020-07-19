@@ -1,5 +1,5 @@
 import styles from "./HighScores.module.scss";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { load_highs } from "../../lib/redux/actions/highAction";
 
@@ -8,12 +8,24 @@ export default function HighScores() {
     const games = ["stopwatch", "qwickmaffs", "wackamole"]
     const [active, setActive] = useState("stopwatch")
     const highs = useSelector(state => state.high);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     function refresh() {
         setLoading(true);
         dispatch(load_highs(active)).then((res) => {setLoading(false)});
     }
+
+    useEffect(() => {
+        dispatch(load_highs(active)).then(res => setLoading(false));
+        for (let i = 0; i < games.length; i++) {
+            dispatch(load_highs(games[i]));
+        }
+    }, [])
+
+    console.log(highs)
+
+    
+
 
     return <>
         <div className={`${styles.box}`}>
@@ -37,7 +49,7 @@ export default function HighScores() {
                                 {score.name}
                             </div>
                             <div className={styles.value}>
-                                blah
+                                {(Math.floor(score.score / 1000) % 60)}:{("0" + (Math.floor(score.score / 10) % 100)).slice(-2)}s
                             </div>
                         </div>
                     ))

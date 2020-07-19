@@ -47,7 +47,7 @@ export default function Wackamole() {
         document.getElementById("wack-reset").classList.add(styles.show);
         setMoles(noMoles);
         setGaps(initialGaps);
-        dispatch(new_score(1, "wackamole"));
+        dispatch(new_score(time - started, "wackamole"));
     }
 
     function reset() {

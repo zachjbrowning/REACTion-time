@@ -64,7 +64,7 @@ export default function Qwickmaffs() {
         document.getElementById("qwick-time").classList.remove(styles.show);
         document.getElementById("qwick-submit").classList.add(styles.show);
         document.getElementById("qwick-reset").classList.add(styles.show);
-        dispatch(new_score(12, "qwickmaffs"))
+        dispatch(new_score(time - started, "qwickmaffs"))
     }
 
     function reset() {

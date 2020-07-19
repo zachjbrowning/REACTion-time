@@ -39,7 +39,7 @@ export default function Stopwatch() {
         document.getElementById("stopwatch-submit").classList.toggle(styles.show);
         clearInterval(isGoing);
         setIsGoing(-1);
-        dispatch(new_score(345, "stopwatch"));
+        dispatch(new_score(time - started, "stopwatch"));
     }
     
     function resetter() {
